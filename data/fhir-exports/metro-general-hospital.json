@@ -1,0 +1,904 @@
+{
+  "resourceType": "Bundle",
+  "id": "b1a2c3d4-e5f6-7890-abcd-ef1234567890",
+  "meta": {
+    "lastUpdated": "2024-01-15T12:00:00.000Z"
+  },
+  "type": "searchset",
+  "total": 13,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir.metrogeneral.example.org/r4/Patient/$everything"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir.metrogeneral.example.org/r4/Patient/pat-mgh-001",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "pat-mgh-001",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2024-01-10T08:00:00.000Z",
+          "source": "https://fhir.metrogeneral.example.org/r4"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical Record Number"
+                }
+              ]
+            },
+            "system": "https://fhir.metrogeneral.example.org/r4/patient-id",
+            "value": "MRN-MGH-7829341"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Rodriguez",
+            "given": ["Maria", "Elena"]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-867-5309",
+            "use": "mobile"
+          },
+          {
+            "system": "email",
+            "value": "maria.rodriguez@email.com"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1985-07-23",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": ["742 Evergreen Terrace"],
+            "city": "Springfield",
+            "state": "IL",
+            "postalCode": "62704",
+            "country": "USA"
+          }
+        ]
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir.metrogeneral.example.org/r4/Condition/cond-mgh-001",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-mgh-001",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2019-03-15T10:00:00.000Z",
+          "source": "https://fhir.metrogeneral.example.org/r4"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "44054006",
+              "display": "Type 2 diabetes mellitus"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes mellitus without complications"
+            }
+          ],
+          "text": "Diabetes Mellitus Type 2"
+        },
+        "subject": {
+          "reference": "Patient/pat-mgh-001"
+        },
+        "onsetDateTime": "2019-03-15",
+        "recordedDate": "2019-03-15"
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir.metrogeneral.example.org/r4/Condition/cond-mgh-002",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-mgh-002",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2018-06-20T14:30:00.000Z",
+          "source": "https://fhir.metrogeneral.example.org/r4"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "38341003",
+              "display": "Hypertensive disorder"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ],
+          "text": "Essential Hypertension"
+        },
+        "subject": {
+          "reference": "Patient/pat-mgh-001"
+        },
+        "onsetDateTime": "2018-06-20",
+        "recordedDate": "2018-06-20"
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir.metrogeneral.example.org/r4/Condition/cond-mgh-003",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-mgh-003",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2024-01-10T09:00:00.000Z",
+          "source": "https://fhir.metrogeneral.example.org/r4"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional",
+              "display": "Provisional"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "267036007",
+              "display": "Dyspnea"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R06.00",
+              "display": "Dyspnea, unspecified"
+            }
+          ],
+          "text": "Shortness of breath"
+        },
+        "subject": {
+          "reference": "Patient/pat-mgh-001"
+        },
+        "onsetDateTime": "2024-01-10",
+        "recordedDate": "2024-01-10"
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir.metrogeneral.example.org/r4/MedicationRequest/medreq-mgh-001",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-mgh-001",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2019-03-15T10:30:00.000Z",
+          "source": "https://fhir.metrogeneral.example.org/r4"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "860975",
+              "display": "Metformin 500 MG Oral Tablet"
+            }
+          ],
+          "text": "Metformin 500mg"
+        },
+        "subject": {
+          "reference": "Patient/pat-mgh-001"
+        },
+        "authoredOn": "2019-03-15",
+        "requester": {
+          "display": "Dr. Sarah Chen"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet by mouth twice daily",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral"
+                }
+              ]
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 500,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "validityPeriod": {
+            "start": "2019-03-15"
+          },
+          "numberOfRepeatsAllowed": 3,
+          "quantity": {
+            "value": 60,
+            "unit": "tablets"
+          }
+        }
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir.metrogeneral.example.org/r4/MedicationRequest/medreq-mgh-002",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-mgh-002",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2018-06-20T15:00:00.000Z",
+          "source": "https://fhir.metrogeneral.example.org/r4"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "314076",
+              "display": "Lisinopril 10 MG Oral Tablet"
+            }
+          ],
+          "text": "Lisinopril 10mg"
+        },
+        "subject": {
+          "reference": "Patient/pat-mgh-001"
+        },
+        "authoredOn": "2018-06-20",
+        "requester": {
+          "display": "Dr. Sarah Chen"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet by mouth once daily",
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral"
+                }
+              ]
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 10,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "validityPeriod": {
+            "start": "2018-06-20"
+          },
+          "numberOfRepeatsAllowed": 5,
+          "quantity": {
+            "value": 30,
+            "unit": "tablets"
+          }
+        }
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir.metrogeneral.example.org/r4/Observation/obs-mgh-001",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-mgh-001",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2024-01-10T10:00:00.000Z",
+          "source": "https://fhir.metrogeneral.example.org/r4"
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ],
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "Patient/pat-mgh-001"
+        },
+        "effectiveDateTime": "2024-01-10T09:30:00Z",
+        "issued": "2024-01-10T12:00:00Z",
+        "valueQuantity": {
+          "value": 7.2,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 4.0,
+              "unit": "%"
+            },
+            "high": {
+              "value": 5.6,
+              "unit": "%"
+            },
+            "text": "4.0 - 5.6 %"
+          }
+        ]
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir.metrogeneral.example.org/r4/Observation/obs-mgh-002",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-mgh-002",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2024-01-10T08:30:00.000Z",
+          "source": "https://fhir.metrogeneral.example.org/r4"
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood Pressure"
+        },
+        "subject": {
+          "reference": "Patient/pat-mgh-001"
+        },
+        "effectiveDateTime": "2024-01-10T08:15:00Z",
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 142,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 88,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir.metrogeneral.example.org/r4/Encounter/enc-mgh-001",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-mgh-001",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2024-01-12T12:00:00.000Z",
+          "source": "https://fhir.metrogeneral.example.org/r4"
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "32485007",
+                "display": "Hospital admission"
+              }
+            ],
+            "text": "Inpatient Admission - Chest Pain Evaluation"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-mgh-001"
+        },
+        "period": {
+          "start": "2024-01-10T07:30:00Z",
+          "end": "2024-01-12T11:00:00Z"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "29857009",
+                "display": "Chest pain"
+              }
+            ],
+            "text": "Chest pain, rule out cardiac event"
+          }
+        ],
+        "serviceProvider": {
+          "display": "Metro General Hospital"
+        }
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir.metrogeneral.example.org/r4/Encounter/enc-mgh-002",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-mgh-002",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2023-08-06T04:00:00.000Z",
+          "source": "https://fhir.metrogeneral.example.org/r4"
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "EMER",
+          "display": "emergency"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "4525004",
+                "display": "Emergency department patient visit"
+              }
+            ],
+            "text": "Emergency Visit"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-mgh-001"
+        },
+        "period": {
+          "start": "2023-08-05T22:15:00Z",
+          "end": "2023-08-06T03:45:00Z"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "422587007",
+                "display": "Nausea"
+              }
+            ],
+            "text": "Severe nausea and vomiting"
+          }
+        ],
+        "serviceProvider": {
+          "display": "Metro General Hospital"
+        }
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir.metrogeneral.example.org/r4/Procedure/proc-mgh-001",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-mgh-001",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2024-01-10T09:00:00.000Z",
+          "source": "https://fhir.metrogeneral.example.org/r4"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "40701008",
+              "display": "Electrocardiogram"
+            },
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "93000",
+              "display": "Electrocardiogram, complete"
+            }
+          ],
+          "text": "ECG - 12 lead"
+        },
+        "subject": {
+          "reference": "Patient/pat-mgh-001"
+        },
+        "performedDateTime": "2024-01-10T08:00:00Z",
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "29857009",
+                "display": "Chest pain"
+              }
+            ]
+          }
+        ],
+        "performer": [
+          {
+            "actor": {
+              "display": "Dr. Michael Torres"
+            }
+          }
+        ]
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir.metrogeneral.example.org/r4/Procedure/proc-mgh-002",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-mgh-002",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2024-01-10T10:00:00.000Z",
+          "source": "https://fhir.metrogeneral.example.org/r4"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "169069000",
+              "display": "Chest X-ray"
+            },
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "71046",
+              "display": "Chest X-ray, 2 views"
+            }
+          ],
+          "text": "Chest X-ray PA and Lateral"
+        },
+        "subject": {
+          "reference": "Patient/pat-mgh-001"
+        },
+        "performedDateTime": "2024-01-10T09:00:00Z",
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "267036007",
+                "display": "Dyspnea"
+              }
+            ]
+          }
+        ],
+        "performer": [
+          {
+            "actor": {
+              "display": "Radiology Dept"
+            }
+          }
+        ]
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir.metrogeneral.example.org/r4/AllergyIntolerance/allergy-mgh-001",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "allergy-mgh-001",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2019-03-15T10:00:00.000Z",
+          "source": "https://fhir.metrogeneral.example.org/r4"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "type": "allergy",
+        "category": ["medication"],
+        "criticality": "high",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "7980",
+              "display": "Penicillin"
+            }
+          ],
+          "text": "Penicillin allergy"
+        },
+        "patient": {
+          "reference": "Patient/pat-mgh-001"
+        },
+        "onsetDateTime": "2005-01-01",
+        "recordedDate": "2019-03-15",
+        "reaction": [
+          {
+            "substance": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "7980",
+                  "display": "Penicillin"
+                }
+              ]
+            },
+            "manifestation": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "271807003",
+                    "display": "Skin rash"
+                  }
+                ]
+              }
+            ],
+            "severity": "moderate"
+          },
+          {
+            "substance": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "7980",
+                  "display": "Penicillin"
+                }
+              ]
+            },
+            "manifestation": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "267036007",
+                    "display": "Dyspnea"
+                  }
+                ]
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "search": {
+        "mode": "match"
+      }
+    }
+  ]
+}

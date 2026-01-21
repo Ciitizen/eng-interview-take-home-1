@@ -1,0 +1,968 @@
+{
+  "resourceType": "Bundle",
+  "id": "c2b3d4e5-f6a7-8901-bcde-f23456789012",
+  "meta": {
+    "lastUpdated": "2024-01-15T16:00:00.000Z"
+  },
+  "type": "searchset",
+  "total": 14,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://api.citycareclinic.example.org/fhir/Patient/$everything"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://api.citycareclinic.example.org/fhir/Patient/pat-ccc-001",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "pat-ccc-001",
+        "meta": {
+          "versionId": "3",
+          "lastUpdated": "2024-01-15T10:00:00.000Z",
+          "source": "https://api.citycareclinic.example.org/fhir"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical Record Number"
+                }
+              ]
+            },
+            "system": "https://api.citycareclinic.example.org/fhir/patient-id",
+            "value": "CCC-PAT-2019-0847"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Rodriguez",
+            "given": ["Maria", "E"],
+            "suffix": ["(née Garcia)"]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(555) 867-5309",
+            "use": "mobile"
+          },
+          {
+            "system": "email",
+            "value": "maria.rodriguez@email.com"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1985-07-23",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": ["742 Evergreen Terrace"],
+            "city": "Springfield",
+            "state": "IL",
+            "postalCode": "62704",
+            "country": "USA"
+          }
+        ]
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://api.citycareclinic.example.org/fhir/Condition/cond-ccc-001",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-ccc-001",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2019-03-10T14:00:00.000Z",
+          "source": "https://api.citycareclinic.example.org/fhir"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "44054006",
+              "display": "Type 2 diabetes mellitus without complications"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.65",
+              "display": "Type 2 diabetes mellitus with hyperglycemia"
+            }
+          ],
+          "text": "Type 2 Diabetes"
+        },
+        "subject": {
+          "reference": "Patient/pat-ccc-001"
+        },
+        "onsetDateTime": "2019-03-10",
+        "recordedDate": "2019-03-10"
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://api.citycareclinic.example.org/fhir/Condition/cond-ccc-002",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-ccc-002",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2017-11-15T09:30:00.000Z",
+          "source": "https://api.citycareclinic.example.org/fhir"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "59621000",
+              "display": "Essential hypertension"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential (primary) hypertension"
+            }
+          ],
+          "text": "High Blood Pressure"
+        },
+        "subject": {
+          "reference": "Patient/pat-ccc-001"
+        },
+        "onsetDateTime": "2017-11-15",
+        "recordedDate": "2017-11-15"
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://api.citycareclinic.example.org/fhir/Condition/cond-ccc-003",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-ccc-003",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2024-01-15T10:30:00.000Z",
+          "source": "https://api.citycareclinic.example.org/fhir"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "267036007",
+              "display": "Shortness of breath"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R06.02",
+              "display": "Shortness of breath"
+            }
+          ],
+          "text": "SOB on exertion"
+        },
+        "subject": {
+          "reference": "Patient/pat-ccc-001"
+        },
+        "onsetDateTime": "2024-01-08",
+        "recordedDate": "2024-01-15"
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://api.citycareclinic.example.org/fhir/Condition/cond-ccc-004",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-ccc-004",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2020-02-20T11:00:00.000Z",
+          "source": "https://api.citycareclinic.example.org/fhir"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "73211009",
+              "display": "Hyperlipidemia"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E78.5",
+              "display": "Hyperlipidemia, unspecified"
+            }
+          ],
+          "text": "High Cholesterol"
+        },
+        "subject": {
+          "reference": "Patient/pat-ccc-001"
+        },
+        "onsetDateTime": "2020-02-20",
+        "recordedDate": "2020-02-20"
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://api.citycareclinic.example.org/fhir/MedicationRequest/medreq-ccc-001",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-ccc-001",
+        "meta": {
+          "versionId": "2",
+          "lastUpdated": "2023-09-15T14:30:00.000Z",
+          "source": "https://api.citycareclinic.example.org/fhir"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "861007",
+              "display": "Metformin hydrochloride 1000 MG Oral Tablet"
+            }
+          ],
+          "text": "Metformin 1000mg"
+        },
+        "subject": {
+          "reference": "Patient/pat-ccc-001"
+        },
+        "authoredOn": "2023-09-15",
+        "requester": {
+          "display": "Dr. James Wilson"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet by mouth twice daily with meals",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral"
+                }
+              ]
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 1000,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "validityPeriod": {
+            "start": "2023-09-15"
+          },
+          "numberOfRepeatsAllowed": 5,
+          "quantity": {
+            "value": 60,
+            "unit": "tablets"
+          }
+        },
+        "priorPrescription": {
+          "display": "Previous prescription: Metformin 500mg (increased from 500mg to 1000mg)"
+        }
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://api.citycareclinic.example.org/fhir/MedicationRequest/medreq-ccc-002",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-ccc-002",
+        "meta": {
+          "versionId": "2",
+          "lastUpdated": "2023-06-10T09:30:00.000Z",
+          "source": "https://api.citycareclinic.example.org/fhir"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "314077",
+              "display": "Lisinopril 20 MG Oral Tablet"
+            }
+          ],
+          "text": "Lisinopril 20mg"
+        },
+        "subject": {
+          "reference": "Patient/pat-ccc-001"
+        },
+        "authoredOn": "2023-06-10",
+        "requester": {
+          "display": "Dr. James Wilson"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet by mouth once daily in the morning",
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral"
+                }
+              ]
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 20,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "validityPeriod": {
+            "start": "2023-06-10"
+          },
+          "numberOfRepeatsAllowed": 11,
+          "quantity": {
+            "value": 30,
+            "unit": "tablets"
+          }
+        },
+        "priorPrescription": {
+          "display": "Previous prescription: Lisinopril 10mg (increased from 10mg to 20mg)"
+        }
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://api.citycareclinic.example.org/fhir/MedicationRequest/medreq-ccc-003",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-ccc-003",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2020-02-20T11:30:00.000Z",
+          "source": "https://api.citycareclinic.example.org/fhir"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "617312",
+              "display": "Atorvastatin 20 MG Oral Tablet"
+            }
+          ],
+          "text": "Atorvastatin 20mg"
+        },
+        "subject": {
+          "reference": "Patient/pat-ccc-001"
+        },
+        "authoredOn": "2020-02-20",
+        "requester": {
+          "display": "Dr. James Wilson"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet by mouth once daily at bedtime",
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral"
+                }
+              ]
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 20,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "validityPeriod": {
+            "start": "2020-02-20"
+          },
+          "numberOfRepeatsAllowed": 5,
+          "quantity": {
+            "value": 30,
+            "unit": "tablets"
+          }
+        }
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://api.citycareclinic.example.org/fhir/Observation/obs-ccc-001",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-ccc-001",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2024-01-15T10:15:00.000Z",
+          "source": "https://api.citycareclinic.example.org/fhir"
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29463-7",
+              "display": "Body weight"
+            }
+          ],
+          "text": "Weight"
+        },
+        "subject": {
+          "reference": "Patient/pat-ccc-001"
+        },
+        "effectiveDateTime": "2024-01-15T10:00:00Z",
+        "valueQuantity": {
+          "value": 78.5,
+          "unit": "kg",
+          "system": "http://unitsofmeasure.org",
+          "code": "kg"
+        }
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://api.citycareclinic.example.org/fhir/Observation/obs-ccc-002",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-ccc-002",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2024-01-15T10:15:00.000Z",
+          "source": "https://api.citycareclinic.example.org/fhir"
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel"
+            }
+          ],
+          "text": "BP"
+        },
+        "subject": {
+          "reference": "Patient/pat-ccc-001"
+        },
+        "effectiveDateTime": "2024-01-15T10:05:00Z",
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 138,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 85,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://api.citycareclinic.example.org/fhir/Encounter/enc-ccc-001",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-ccc-001",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2024-01-15T11:00:00.000Z",
+          "source": "https://api.citycareclinic.example.org/fhir"
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185349003",
+                "display": "Encounter for check up"
+              }
+            ],
+            "text": "Annual Physical Examination"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-ccc-001"
+        },
+        "period": {
+          "start": "2024-01-15T10:00:00Z",
+          "end": "2024-01-15T10:45:00Z"
+        },
+        "serviceProvider": {
+          "display": "CityCare Primary Clinic"
+        }
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://api.citycareclinic.example.org/fhir/Encounter/enc-ccc-002",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-ccc-002",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2023-09-15T15:00:00.000Z",
+          "source": "https://api.citycareclinic.example.org/fhir"
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185347001",
+                "display": "Encounter for problem"
+              }
+            ],
+            "text": "Diabetes Follow-up"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-ccc-001"
+        },
+        "period": {
+          "start": "2023-09-15T14:00:00Z",
+          "end": "2023-09-15T14:30:00Z"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "44054006",
+                "display": "Type 2 diabetes mellitus"
+              }
+            ]
+          }
+        ],
+        "serviceProvider": {
+          "display": "CityCare Primary Clinic"
+        }
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://api.citycareclinic.example.org/fhir/AllergyIntolerance/allergy-ccc-001",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "allergy-ccc-001",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2019-03-10T14:00:00.000Z",
+          "source": "https://api.citycareclinic.example.org/fhir"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "type": "allergy",
+        "category": ["medication"],
+        "criticality": "high",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "7980",
+              "display": "Penicillin V"
+            }
+          ],
+          "text": "Penicillin V Potassium allergy"
+        },
+        "patient": {
+          "reference": "Patient/pat-ccc-001"
+        },
+        "onsetDateTime": "2010-06-15",
+        "recordedDate": "2019-03-10",
+        "reaction": [
+          {
+            "substance": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "7980",
+                  "display": "Penicillin V"
+                }
+              ]
+            },
+            "manifestation": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "271807003",
+                    "display": "Eruption of skin"
+                  }
+                ]
+              }
+            ],
+            "severity": "moderate"
+          }
+        ]
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://api.citycareclinic.example.org/fhir/AllergyIntolerance/allergy-ccc-002",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "allergy-ccc-002",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2019-03-10T14:00:00.000Z",
+          "source": "https://api.citycareclinic.example.org/fhir"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "type": "intolerance",
+        "category": ["medication"],
+        "criticality": "low",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "1191",
+              "display": "Aspirin"
+            }
+          ],
+          "text": "Aspirin sensitivity"
+        },
+        "patient": {
+          "reference": "Patient/pat-ccc-001"
+        },
+        "onsetDateTime": "2015-03-20",
+        "recordedDate": "2019-03-10",
+        "reaction": [
+          {
+            "substance": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "1191",
+                  "display": "Aspirin"
+                }
+              ]
+            },
+            "manifestation": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "271681002",
+                    "display": "Stomach ache"
+                  }
+                ]
+              }
+            ],
+            "severity": "mild"
+          }
+        ]
+      },
+      "search": {
+        "mode": "match"
+      }
+    }
+  ]
+}
