@@ -93,6 +93,26 @@ ls data/fhir-exports/
 # - Procedure resources (only in hospital data)
 ```
 
+### Example: Next.js
+
+We've included an example Next.js 13 implementation in `examples/nextjs/` with a basic timeline visualization:
+
+```bash
+cd examples/nextjs
+npm install
+npm run dev
+```
+
+This example includes:
+- Basic FHIR type definitions (`src/types/fhir.ts`)
+- Data loading utilities (`src/lib/fhir-loader.ts`)
+- Timeline event extraction (`src/lib/timeline.ts`)
+- A basic timeline component (`src/components/Timeline.tsx`)
+
+**Important:** This example simply combines events from all sources chronologically—it does **not** handle conflicts or reconciliation. You'll see duplicate entries and inconsistencies. Your task is to detect and resolve these.
+
+You're free to build on this example, start fresh, or use a completely different tech stack.
+
 ## FHIR Resources Reference
 
 If you're not familiar with FHIR, here are the key resources used:
@@ -107,6 +127,29 @@ If you're not familiar with FHIR, here are the key resources used:
 Each resource has a `meta.source` field indicating which system it came from.
 
 For more details: [FHIR R4 Documentation](https://hl7.org/fhir/R4/)
+
+## Useful Libraries
+
+Here are some popular FHIR parsing libraries you may find helpful:
+
+### Python
+- **[fhir.resources](https://github.com/nazrulworld/fhir.resources)** - Pydantic-based models for all FHIR resources with built-in validation. Use `fhir.resources.r4b` for R4 support.
+- **[fhirclient](https://github.com/smart-on-fhir/client-py)** - SMART on FHIR client with Pythonic data model classes for (de)serialization.
+- **[fhir-py](https://pypi.org/project/fhirpy/)** - Lightweight async client using plain Python dictionaries, version-agnostic.
+
+### JavaScript/TypeScript
+- **[fhir.js](https://github.com/FHIR/fhir.js)** - Lightweight client for FHIR servers, works in browsers and Node.js.
+- **[@types/fhir](https://www.npmjs.com/package/@types/fhir)** - TypeScript definitions for FHIR R4 resources.
+- **[fhirpath.js](https://github.com/HL7/fhirpath.js)** - JavaScript implementation of FHIRPath for querying FHIR data.
+
+### Java
+- **[HAPI FHIR](https://hapifhir.io/)** - The most widely used Java FHIR library. Supports DSTU2 through R5, includes parsers, validators, and a JPA server.
+
+### Other Resources
+- [Official FHIR R4 Specification](https://hl7.org/fhir/R4/)
+- [FHIR R4 Resource List](https://hl7.org/fhir/R4/resourcelist.html)
+- [Open Source FHIR Implementations](https://confluence.hl7.org/display/FHIR/Open+Source+Implementations)
+- [Awesome FHIR](https://github.com/fhir-fuel/awesome-FHIR) - Curated list of FHIR tools and resources
 
 ## Hints
 
