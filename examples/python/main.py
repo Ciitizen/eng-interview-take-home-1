@@ -22,7 +22,7 @@ async def home(request: Request):
         [
             event
             for source in data_sources
-            for event in extract_timeline_events(source["bundle"], source["name"])
+            for event in extract_timeline_events(source.bundle, source.name)
         ]
     )
 

@@ -44,8 +44,13 @@
           {
             "use": "official",
             "family": "Rodriguez",
-            "given": ["Maria", "E"],
-            "suffix": ["(née Garcia)"]
+            "given": [
+              "Maria",
+              "E"
+            ],
+            "suffix": [
+              "(n\u00e9e Garcia)"
+            ]
           }
         ],
         "telecom": [
@@ -65,7 +70,9 @@
           {
             "use": "home",
             "type": "physical",
-            "line": ["742 Evergreen Terrace"],
+            "line": [
+              "742 Evergreen Terrace"
+            ],
             "city": "Springfield",
             "state": "IL",
             "postalCode": "62704",
@@ -184,8 +191,8 @@
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "59621000",
-              "display": "Essential hypertension"
+              "code": "38341003",
+              "display": "Hypertensive disorder"
             },
             {
               "system": "http://hl7.org/fhir/sid/icd-10-cm",
@@ -349,8 +356,8 @@
           "coding": [
             {
               "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "861007",
-              "display": "Metformin hydrochloride 1000 MG Oral Tablet"
+              "code": "860975",
+              "display": "Metformin 500 MG Oral Tablet"
             }
           ],
           "text": "Metformin 1000mg"
@@ -436,8 +443,8 @@
           "coding": [
             {
               "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "314077",
-              "display": "Lisinopril 20 MG Oral Tablet"
+              "code": "314076",
+              "display": "Lisinopril 10 MG Oral Tablet"
             }
           ],
           "text": "Lisinopril 20mg"
@@ -841,7 +848,9 @@
           ]
         },
         "type": "allergy",
-        "category": ["medication"],
+        "category": [
+          "medication"
+        ],
         "criticality": "high",
         "code": {
           "coding": [
@@ -917,7 +926,9 @@
           ]
         },
         "type": "intolerance",
-        "category": ["medication"],
+        "category": [
+          "medication"
+        ],
         "criticality": "low",
         "code": {
           "coding": [
@@ -962,6 +973,46 @@
       },
       "search": {
         "mode": "match"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-ccc-003",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/pat-ccc-001"
+        },
+        "effectiveDateTime": "2024-01-10T09:45:00Z",
+        "valueQuantity": {
+          "value": 58,
+          "unit": "mmol/mol",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/mol"
+        },
+        "meta": {
+          "source": "https://api.citycareclinic.example.org/fhir"
+        }
       }
     }
   ]

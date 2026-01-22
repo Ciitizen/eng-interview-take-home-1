@@ -44,7 +44,10 @@
           {
             "use": "official",
             "family": "Rodriguez",
-            "given": ["Maria", "Elena"]
+            "given": [
+              "Maria",
+              "Elena"
+            ]
           }
         ],
         "telecom": [
@@ -64,7 +67,9 @@
           {
             "use": "home",
             "type": "physical",
-            "line": ["742 Evergreen Terrace"],
+            "line": [
+              "742 Evergreen Terrace"
+            ],
             "city": "Springfield",
             "state": "IL",
             "postalCode": "62704",
@@ -830,7 +835,9 @@
           ]
         },
         "type": "allergy",
-        "category": ["medication"],
+        "category": [
+          "medication"
+        ],
         "criticality": "high",
         "code": {
           "coding": [
@@ -898,6 +905,46 @@
       },
       "search": {
         "mode": "match"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-mgh-003",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/pat-mgh-001"
+        },
+        "effectiveDateTime": "2024-01-10T09:30:00Z",
+        "valueQuantity": {
+          "value": 7.3,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "meta": {
+          "source": "https://fhir.metrogeneral.example.org/r4"
+        }
       }
     }
   ]
