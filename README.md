@@ -18,6 +18,14 @@ You are given FHIR Bundle exports from three different healthcare systems for th
 
 The data contains realistic inconsistencies that occur in real-world healthcare scenarios.
 
+### Example Conflict
+
+Here's one conflict you'll find in the data:
+
+> **Hypertension** is recorded with onset date **2018-06-20** at Metro General Hospital, but **2017-11-15** at CityCare Clinic—a 7-month discrepancy. Both records refer to the same condition (SNOMED code `38341003`), but the patient likely reported different dates at each facility.
+
+Your task is to detect conflicts like this and present them clearly in the timeline.
+
 ## Requirements
 
 Build a solution that:
@@ -25,7 +33,7 @@ Build a solution that:
 1. **Parses** the three FHIR Bundle JSON files
 2. **Identifies and reconciles conflicts** between the records, including:
    - Conditions with conflicting onset dates or verification status
-   - Medications with different doses (distinguishing legitimate changes from errors)
+   - Medications with different doses across systems
    - Lab results with value discrepancies
    - Allergies with different severity or reaction details
    - Data present in one system but missing from others
@@ -35,8 +43,26 @@ Build a solution that:
 
 Your solution should produce:
 - A visual timeline showing the patient's health events in chronological order
-- Clear indication of how conflicts were resolved (e.g., tooltips, annotations, or a separate summary)
+- Clear indication of conflicts detected (e.g., tooltips, annotations, or a separate summary)
 - Differentiation between data sources where relevant
+
+### Example Output
+
+Here's an example of how a conflict might be displayed in a timeline:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│ ⚠️ Hypertension                                      2017-2018  │
+│                                                                 │
+│ Conflict: Onset date differs between sources                    │
+│   • CityCare Clinic: Nov 15, 2017                               │
+│   • Metro General Hospital: Jun 20, 2018                        │
+│                                                                 │
+│ Both sources agree: Active condition, SNOMED 38341003           │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+This is just one approach—feel free to design your own UI for displaying conflicts.
 
 ### Technology
 
