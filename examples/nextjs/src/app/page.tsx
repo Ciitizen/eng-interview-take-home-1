@@ -27,11 +27,6 @@ export default async function Home() {
         </span>
       </div>
 
-      <div className="mb-6 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm">
-        This timeline combines events without reconciliation. Your task is to
-        detect and resolve duplicates and conflicts.
-      </div>
-
       <Timeline events={allEvents} />
     </main>
   );

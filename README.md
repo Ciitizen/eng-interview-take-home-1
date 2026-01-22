@@ -1,10 +1,10 @@
-# Patient Health Record Reconciliation Challenge
+# Patient Timeline Visualization Challenge
 
 ## Overview
 
 When patients receive care from multiple healthcare providers, their health data becomes fragmented across different Electronic Health Record (EHR) systems. Each system may record the same information differently, leading to inconsistencies, duplicates, and conflicts that can impact patient safety and care quality.
 
-**Your task:** Build a system that ingests patient health records from multiple sources (in FHIR R4 format) and identifies conflicts, inconsistencies, and discrepancies between them.
+**Your task:** Build a patient timeline visualization that presents a unified, coherent view of a patient's health history by reconciling records from multiple sources.
 
 ## The Problem
 
@@ -16,62 +16,62 @@ You are given FHIR Bundle exports from three different healthcare systems for th
 | CityCare Primary Clinic | Ambulatory EHR | `data/fhir-exports/citycare-clinic.json` |
 | HealthFirst Laboratories | Lab System | `data/fhir-exports/healthfirst-labs.json` |
 
-The data contains realistic inconsistencies that occur in real-world healthcare scenarios, including:
-- Different onset dates for the same condition
-- Medication dose changes over time
-- Lab values that differ between systems
-- Missing allergies or conditions in some systems
-- Demographic data entered differently
+The data contains realistic inconsistencies that occur in real-world healthcare scenarios.
 
 ## Requirements
-
-### Minimum Requirements
 
 Build a solution that:
 
 1. **Parses** the three FHIR Bundle JSON files
-2. **Identifies conflicts** between the records, including:
+2. **Identifies and reconciles conflicts** between the records, including:
    - Conditions with conflicting onset dates or verification status
    - Medications with different doses (distinguishing legitimate changes from errors)
-   - Lab results with significant value discrepancies
-   - Allergies with different severity or missing reaction details
+   - Lab results with value discrepancies
+   - Allergies with different severity or reaction details
    - Data present in one system but missing from others
-3. **Outputs a conflict report** that clearly describes each discrepancy found
+3. **Visualizes a unified patient timeline** that presents a coherent view of the patient's health history
 
-### Output Format
+### Output
 
-Your solution should produce a structured report (JSON, Markdown, or rendered UI) that includes:
-- A summary of conflicts found
-- For each conflict:
-  - What type of conflict it is
-  - Which systems are involved
-  - The specific data that differs
-  - Severity/priority (you decide the criteria)
+Your solution should produce:
+- A visual timeline showing the patient's health events in chronological order
+- Clear indication of how conflicts were resolved (e.g., tooltips, annotations, or a separate summary)
+- Differentiation between data sources where relevant
 
 ### Technology
 
 - Use any programming language or framework you prefer
-- No LLM or AI API keys are required (this is a data processing challenge)
-- You may use any libraries for FHIR parsing, data processing, etc.
+- A starter Next.js project is provided in `examples/nextjs/` if you'd like to use it
+- You may use any libraries for FHIR parsing, visualization, etc.
 
-## Evaluation Criteria
+### Matching Logic
 
-We will evaluate your submission on:
+To identify the same record across systems, use the standardized codes in the `coding` arrays:
+- **Conditions**: SNOMED CT codes (`http://snomed.info/sct`)
+- **Medications**: RxNorm codes (`http://www.nlm.nih.gov/research/umls/rxnorm`)
+- **Lab Results**: LOINC codes (`http://loinc.org`)
+- **Allergies**: RxNorm codes for medication allergies
 
-1. **Correctness**: Does your solution find the conflicts in the data?
-2. **Code Quality**: Is the code well-organized, readable, and maintainable?
-3. **Decision Making**: How did you handle ambiguous cases? What assumptions did you make?
-4. **Completeness**: Did you handle edge cases? Is the output useful?
+## Tools & Evaluation
+
+We encourage you to use all available tools to complete this assignment, including AI coding assistants and agents. This reflects how we work in practice.
+
+However, you will be evaluated on the overall result—including:
+- **Visualization Quality**: Is the timeline clear and useful?
+- **Conflict Resolution**: Are discrepancies handled intelligently?
+- **Code Quality**: Is the code well-organized and maintainable?
+- **Decision Making**: How did you handle ambiguous cases? What assumptions did you make?
+
+Using AI tools effectively is a skill; the output still needs to meet our engineering standards.
 
 ## Deliverables
 
-1. **Working code** that processes the input files and produces a conflict report
-2. **A brief writeup** (can be in this README or a separate file) addressing:
+1. **A working timeline visualization** that reconciles data from all three sources
+2. **A brief writeup** (can be in a README or separate file) addressing:
    - How to run your solution
-   - Key design decisions you made
-   - What assumptions you made about conflict detection
-   - What you would do differently with more time
-   - Any conflicts you found that aren't obvious
+   - How you approached conflict resolution
+   - Key design decisions and assumptions
+   - What you would improve with more time
 
 ## Time Expectation
 
@@ -83,35 +83,19 @@ We expect this to take **3-5 hours**. Focus on a working solution first; polish 
 # The data files are in:
 ls data/fhir-exports/
 
-# Each file is a FHIR R4 Bundle containing:
-# - Patient resource
-# - Condition resources (diagnoses)
-# - MedicationRequest resources (prescriptions)
-# - Observation resources (labs, vitals)
-# - Encounter resources (visits)
-# - AllergyIntolerance resources
-# - Procedure resources (only in hospital data)
-```
-
-### Example: Next.js
-
-We've included an example Next.js 13 implementation in `examples/nextjs/` with a basic timeline visualization:
-
-```bash
+# To use the starter project:
 cd examples/nextjs
 npm install
 npm run dev
 ```
 
-This example includes:
+The starter project includes:
 - Basic FHIR type definitions (`src/types/fhir.ts`)
 - Data loading utilities (`src/lib/fhir-loader.ts`)
 - Timeline event extraction (`src/lib/timeline.ts`)
 - A basic timeline component (`src/components/Timeline.tsx`)
 
-**Important:** This example simply combines events from all sources chronologically—it does **not** handle conflicts or reconciliation. You'll see duplicate entries and inconsistencies. Your task is to detect and resolve these.
-
-You're free to build on this example, start fresh, or use a completely different tech stack.
+The example combines events chronologically but does **not** handle conflicts or reconciliation—you'll see duplicate entries and inconsistencies. You're free to build on this example, start fresh, or use a completely different tech stack.
 
 ## FHIR Resources Reference
 
@@ -130,38 +114,17 @@ For more details: [FHIR R4 Documentation](https://hl7.org/fhir/R4/)
 
 ## Useful Libraries
 
-Here are some popular FHIR parsing libraries you may find helpful:
+### JavaScript/TypeScript
+- **[@types/fhir](https://www.npmjs.com/package/@types/fhir)** - TypeScript definitions for FHIR R4 resources
+- **[fhirpath.js](https://github.com/HL7/fhirpath.js)** - JavaScript implementation of FHIRPath for querying FHIR data
 
 ### Python
-- **[fhir.resources](https://github.com/nazrulworld/fhir.resources)** - Pydantic-based models for all FHIR resources with built-in validation. Use `fhir.resources.r4b` for R4 support.
-- **[fhirclient](https://github.com/smart-on-fhir/client-py)** - SMART on FHIR client with Pythonic data model classes for (de)serialization.
-- **[fhir-py](https://pypi.org/project/fhirpy/)** - Lightweight async client using plain Python dictionaries, version-agnostic.
-
-### JavaScript/TypeScript
-- **[fhir.js](https://github.com/FHIR/fhir.js)** - Lightweight client for FHIR servers, works in browsers and Node.js.
-- **[@types/fhir](https://www.npmjs.com/package/@types/fhir)** - TypeScript definitions for FHIR R4 resources.
-- **[fhirpath.js](https://github.com/HL7/fhirpath.js)** - JavaScript implementation of FHIRPath for querying FHIR data.
-
-### Java
-- **[HAPI FHIR](https://hapifhir.io/)** - The most widely used Java FHIR library. Supports DSTU2 through R5, includes parsers, validators, and a JPA server.
+- **[fhir.resources](https://github.com/nazrulworld/fhir.resources)** - Pydantic-based models for all FHIR resources with built-in validation
 
 ### Other Resources
 - [Official FHIR R4 Specification](https://hl7.org/fhir/R4/)
 - [FHIR R4 Resource List](https://hl7.org/fhir/R4/resourcelist.html)
-- [Open Source FHIR Implementations](https://confluence.hl7.org/display/FHIR/Open+Source+Implementations)
-- [Awesome FHIR](https://github.com/fhir-fuel/awesome-FHIR) - Curated list of FHIR tools and resources
-
-## Hints
-
-- Start by understanding the structure of a single FHIR Bundle
-- Consider what makes two records "the same" across systems (matching logic)
-- Think about which conflicts are clinically significant vs. trivial
-- The `coding` arrays contain standardized codes (SNOMED, ICD-10, LOINC, RxNorm) that can help with matching
 
 ## Questions?
 
 If you have questions about the requirements, make a reasonable assumption and document it in your writeup.
-
----
-
-Good luck! We're excited to see your approach.
