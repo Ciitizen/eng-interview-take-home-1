@@ -2,6 +2,7 @@
 
 import { promises as fs } from "fs";
 import path from "path";
+import { DATA_SOURCES } from "./constants";
 
 export interface DataSource {
   name: string;
@@ -9,12 +10,6 @@ export interface DataSource {
 }
 
 const DATA_DIR = path.join(process.cwd(), "..", "..", "data", "fhir-exports");
-
-const DATA_SOURCES = [
-  { name: "Metro General Hospital", file: "metro-general-hospital.json" },
-  { name: "CityCare Primary Clinic", file: "citycare-clinic.json" },
-  { name: "HealthFirst Laboratories", file: "healthfirst-labs.json" },
-];
 
 export async function loadAllBundles(): Promise<DataSource[]> {
   return Promise.all(

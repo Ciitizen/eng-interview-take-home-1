@@ -1,5 +1,6 @@
 import { loadAllBundles } from "@/lib/fhir-loader";
 import { extractTimelineEvents, sortEventsByDate } from "@/lib/timeline";
+import { DATA_SOURCES, COLOR_CLASSES } from "@/lib/constants";
 import { Timeline } from "@/components/Timeline";
 
 export default async function Home() {
@@ -16,15 +17,15 @@ export default async function Home() {
       </p>
 
       <div className="flex gap-4 mb-6 text-sm">
-        <span className="flex items-center gap-1">
-          <span className="w-3 h-3 rounded bg-blue-200 border border-blue-400" /> Hospital
-        </span>
-        <span className="flex items-center gap-1">
-          <span className="w-3 h-3 rounded bg-green-200 border border-green-400" /> Clinic
-        </span>
-        <span className="flex items-center gap-1">
-          <span className="w-3 h-3 rounded bg-purple-200 border border-purple-400" /> Lab
-        </span>
+        {DATA_SOURCES.map((source) => {
+          const colors = COLOR_CLASSES[source.color];
+          return (
+            <span key={source.name} className="flex items-center gap-1">
+              <span className={`w-3 h-3 rounded ${colors.bg} border ${colors.border}`} />
+              {source.name.split(" ")[0]}
+            </span>
+          );
+        })}
       </div>
 
       <Timeline events={allEvents} />
