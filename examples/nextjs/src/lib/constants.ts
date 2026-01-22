@@ -5,8 +5,7 @@ export const DATA_SOURCES = [
   { name: "HealthFirst Laboratories", file: "healthfirst-labs.json", color: "purple" },
 ] as const;
 
-export type SourceName = (typeof DATA_SOURCES)[number]["name"];
-export type SourceColor = (typeof DATA_SOURCES)[number]["color"];
+type SourceColor = (typeof DATA_SOURCES)[number]["color"];
 
 /** Tailwind classes for each color */
 export const COLOR_CLASSES: Record<SourceColor, { bg: string; border: string }> = {

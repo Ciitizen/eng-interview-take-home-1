@@ -79,23 +79,32 @@ We expect this to take **3-5 hours**. Focus on a working solution first; polish 
 
 ## Getting Started
 
-```bash
-# The data files are in:
-ls data/fhir-exports/
+The data files are in `data/fhir-exports/`. We provide starter projects in two languages:
 
-# To use the starter project:
+### Next.js (TypeScript)
+
+```bash
 cd examples/nextjs
 npm install
 npm run dev
 ```
 
-The starter project includes:
-- FHIR R4 type definitions via `@types/fhir` (use `fhir4.Bundle`, `fhir4.Patient`, etc.)
-- Data loading utilities (`src/lib/fhir-loader.ts`)
-- Timeline event extraction (`src/lib/timeline.ts`)
-- A basic timeline component (`src/components/Timeline.tsx`)
+### Python (FastAPI)
 
-The example combines events chronologically but does **not** handle conflicts or reconciliation—you'll see duplicate entries and inconsistencies. You're free to build on this example, start fresh, or use a completely different tech stack.
+```bash
+cd examples/python
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python main.py
+```
+
+Both examples include:
+- Data loading utilities
+- Timeline event extraction
+- A basic timeline visualization
+
+The examples combine events chronologically but do **not** handle conflicts or reconciliation—you'll see duplicate entries and inconsistencies. You're free to build on either example, start fresh, or use a completely different tech stack.
 
 ## FHIR Resources Reference
 
