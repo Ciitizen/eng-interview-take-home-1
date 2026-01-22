@@ -46,38 +46,26 @@ def _resource_to_event(resource: dict[str, Any], source: str) -> TimelineEvent |
 def _get_resource_display(resource: dict[str, Any]) -> str:
     """Extract display text from a FHIR resource."""
     # Try common FHIR patterns for display text
-    for path in [
-        ("code", "coding", 0, "display"),
-        ("medicationCodeableConcept", "coding", 0, "display"),
-        ("type", 0, "coding", 0, "display"),
-    ]:
-        value = resource
-        for key in path:
-            if isinstance(value, dict):
-                value = value.get(key)
-            elif isinstance(value, list) and isinstance(key, int) and len(value) > key:
-                value = value[key]
-            else:
-                value = None
-                break
-        if value:
-            return value
+    if code := resource.get("code"):
+        if coding := code.get("coding"):
+            if coding and coding[0].get("display"):
+                return coding[0]["display"]
+    if med := resource.get("medicationCodeableConcept"):
+        if coding := med.get("coding"):
+            if coding and coding[0].get("display"):
+                return coding[0]["display"]
+    if types := resource.get("type"):
+        if types and (coding := types[0].get("coding")):
+            if coding and coding[0].get("display"):
+                return coding[0]["display"]
     return resource.get("resourceType", "Unknown")
 
 
 def _get_resource_date(resource: dict[str, Any]) -> str | None:
     """Extract the most relevant date from a FHIR resource."""
-    for field in [
-        "onsetDateTime",
-        "recordedDate",
-        "authoredOn",
-        "effectiveDateTime",
-        "performedDateTime",
-    ]:
+    for field in ["onsetDateTime", "recordedDate", "authoredOn", "effectiveDateTime", "performedDateTime"]:
         if resource.get(field):
             return resource[field]
-    # Check nested period.start
-    period = resource.get("period")
-    if period and period.get("start"):
-        return period["start"]
+    if period := resource.get("period"):
+        return period.get("start")
     return None
