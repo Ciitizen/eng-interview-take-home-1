@@ -1,4 +1,4 @@
-import { Bundle, Resource } from "@/types/fhir";
+/// <reference types="@types/fhir" />
 
 export interface TimelineEvent {
   date: string;
@@ -8,7 +8,7 @@ export interface TimelineEvent {
 }
 
 export function extractTimelineEvents(
-  bundle: Bundle,
+  bundle: fhir4.Bundle,
   sourceName: string
 ): TimelineEvent[] {
   const events: TimelineEvent[] = [];
@@ -22,7 +22,10 @@ export function extractTimelineEvents(
   return events;
 }
 
-function extractEvent(r: Resource, source: string): TimelineEvent | null {
+function extractEvent(
+  r: fhir4.Resource,
+  source: string
+): TimelineEvent | null {
   const date = getDate(r);
   if (!date) return null;
 
@@ -37,7 +40,7 @@ function extractEvent(r: Resource, source: string): TimelineEvent | null {
   return { date, type: r.resourceType, description: display, source };
 }
 
-function getDate(r: Resource): string | null {
+function getDate(r: fhir4.Resource): string | null {
   // Cast to any for generic property access across resource types
   const resource = r as any;
   return (

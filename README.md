@@ -90,7 +90,7 @@ npm run dev
 ```
 
 The starter project includes:
-- Basic FHIR type definitions (`src/types/fhir.ts`)
+- FHIR R4 type definitions via `@types/fhir` (use `fhir4.Bundle`, `fhir4.Patient`, etc.)
 - Data loading utilities (`src/lib/fhir-loader.ts`)
 - Timeline event extraction (`src/lib/timeline.ts`)
 - A basic timeline component (`src/components/Timeline.tsx`)
