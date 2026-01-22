@@ -1,6 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
-import { FhirBundle, DataSource } from "@/types/fhir";
+import { Bundle, DataSource } from "@/types/fhir";
 
 const DATA_DIR = path.join(process.cwd(), "..", "..", "data", "fhir-exports");
 
@@ -16,7 +16,7 @@ export async function loadAllBundles(): Promise<DataSource[]> {
       name: source.name,
       bundle: JSON.parse(
         await fs.readFile(path.join(DATA_DIR, source.file), "utf-8")
-      ) as FhirBundle,
+      ) as Bundle,
     }))
   );
 }

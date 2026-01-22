@@ -1,4 +1,4 @@
-import { FhirBundle, FhirResource } from "@/types/fhir";
+import { Bundle, Resource } from "@/types/fhir";
 
 export interface TimelineEvent {
   date: string;
@@ -8,12 +8,13 @@ export interface TimelineEvent {
 }
 
 export function extractTimelineEvents(
-  bundle: FhirBundle,
+  bundle: Bundle,
   sourceName: string
 ): TimelineEvent[] {
   const events: TimelineEvent[] = [];
 
   for (const entry of bundle.entry || []) {
+    if (!entry.resource) continue;
     const event = extractEvent(entry.resource, sourceName);
     if (event) events.push(event);
   }
@@ -21,26 +22,31 @@ export function extractTimelineEvents(
   return events;
 }
 
-function extractEvent(r: FhirResource, source: string): TimelineEvent | null {
+function extractEvent(r: Resource, source: string): TimelineEvent | null {
   const date = getDate(r);
   if (!date) return null;
 
-  const display = (r.code as any)?.coding?.[0]?.display
-    || (r.medicationCodeableConcept as any)?.coding?.[0]?.display
-    || (r.type as any)?.[0]?.coding?.[0]?.display
-    || r.resourceType;
+  // Cast to any for generic property access across resource types
+  const resource = r as any;
+  const display =
+    resource.code?.coding?.[0]?.display ||
+    resource.medicationCodeableConcept?.coding?.[0]?.display ||
+    resource.type?.[0]?.coding?.[0]?.display ||
+    r.resourceType;
 
   return { date, type: r.resourceType, description: display, source };
 }
 
-function getDate(r: FhirResource): string | null {
+function getDate(r: Resource): string | null {
+  // Cast to any for generic property access across resource types
+  const resource = r as any;
   return (
-    (r.onsetDateTime as string) ||
-    (r.recordedDate as string) ||
-    (r.authoredOn as string) ||
-    (r.effectiveDateTime as string) ||
-    (r.performedDateTime as string) ||
-    (r.period as any)?.start ||
+    resource.onsetDateTime ||
+    resource.recordedDate ||
+    resource.authoredOn ||
+    resource.effectiveDateTime ||
+    resource.performedDateTime ||
+    resource.period?.start ||
     null
   );
 }
