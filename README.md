@@ -163,3 +163,11 @@ For more details: [FHIR R4 Documentation](https://hl7.org/fhir/R4/)
 ## Questions?
 
 If you have questions about the requirements, make a reasonable assumption and document it in your writeup.
+
+---
+
+## Starter Project Screenshot
+
+Here's what the starter project looks like before conflict detection is implemented:
+
+![Starter project output](example-output-python.png)
